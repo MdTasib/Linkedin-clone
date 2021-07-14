@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/header/Header';
 import { Container } from '@material-ui/core';
 import Sidebar from './components/Sidebar/Sidebar';
+import Feed from './components/Feed/Feed';
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
         {/* App Body */}
         <div className="app__body">
           <Sidebar />
+          <Feed />
         </div>
-        {/* Feed */}
         {/* Widgets */}
       </Container>
     </div>
