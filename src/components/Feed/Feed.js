@@ -6,8 +6,16 @@ import PanoramaIcon from '@material-ui/icons/Panorama';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import VerticalSplitIcon from '@material-ui/icons/VerticalSplit';
+import Post from '../Post/Post';
+import { useState } from 'react';
 
 function Feed() {
+    const [posts, setPosts] = useState([]);
+
+    const sendPost = e => {
+        e.preventDefault();
+    }
+
     return (
         <div className='feed'>
             <div className="feed__inputContainer">
@@ -15,7 +23,7 @@ function Feed() {
                     <CreateIcon />
                     <form>
                         <input type="text" placeholder='Start a post' />
-                        <button type="submit">Send</button>
+                        <button onClick={sendPost} type="submit">Send</button>
                     </form>
                 </div>
                 <div className="feed__inputOptions">
@@ -25,6 +33,17 @@ function Feed() {
                     <InputOption Icon={VerticalSplitIcon} title='Write article' color='#fc9295' />
                 </div>
             </div>
+
+            {
+                posts.map(post => (
+                    <Post />
+                ))
+            }
+            <Post
+                name='Mohammad Tasib'
+                description='This is test'
+                message='WOW this worked'
+            />
         </div>
     );
 }
