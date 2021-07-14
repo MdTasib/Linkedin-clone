@@ -9,8 +9,12 @@ import VerticalSplitIcon from '@material-ui/icons/VerticalSplit';
 import Post from '../Post/Post';
 import { db } from '../../firebase';
 import firebase from 'firebase';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../features/userSlice';
 
 function Feed() {
+    const user = useSelector(selectUser);
+
     const [input, setInput] = useState('');
     const [posts, setPosts] = useState([]);
 
@@ -31,10 +35,10 @@ function Feed() {
         e.preventDefault();
 
         db.collection('posts').add({
-            name: 'Mohammad Tasib',
-            description: 'Front End Developer [Javascript, React, Redux]',
+            name: user.displayName,
+            description: user.email,
             message: input,
-            photoUrl: '',
+            photoUrl: user.photoUrl || user?.email[0],
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
 
