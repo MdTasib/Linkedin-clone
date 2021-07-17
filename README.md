@@ -2,7 +2,7 @@ Hey Gues! -- Linkedin Clone 😃
 ## LINKEDIN clone with Redux & Firebase
 
 ```bash
-# Features:
+Features:
 1. React Js
 2. Redux
 3. Firebase --- Database && Login User
